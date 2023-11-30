@@ -1,23 +1,48 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import Carousel from 'react-elastic-carousel'
 
 import Category from '../../assets/CATEGORIAS.png'
 import apiCodeburger from '../../services/api'
-import { Container, CategoryImg } from './styles'
+import { Container, CategoryImg, ContainerItems } from './styles'
 
-function CategoryCarrossel() {
+export function CategoryCarrossel() {
+  const [categories, setCategories] = useState([])
   useEffect(() => {
     async function loadCategories() {
-      const response = await apiCodeburger.get('categories')
-      console.log(response)
+      const { data } = await apiCodeburger.get('categories')
+
+      setCategories(data)
     }
 
     loadCategories()
   }, [])
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 400, itemsToShow: 2 },
+    { width: 600, itemsToShow: 3 },
+    { width: 900, itemsToShow: 4 },
+    { width: 1300, itemsToShow: 5 }
+  ]
   return (
     <Container>
       <CategoryImg src={Category} />
+
+      <Carousel
+        itemsToShow={5}
+        style={{ width: '90%' }}
+        breakPoints={breakPoints}
+      >
+        {categories &&
+          categories.map(category => {
+            return (
+              <ContainerItems key={category.id}>
+                <img src={category.url} alt="Foto da categoria"></img>
+                <button>{category.name}</button>
+              </ContainerItems>
+            )
+          })}
+      </Carousel>
     </Container>
   )
 }
-
-export default CategoryCarrossel

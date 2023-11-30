@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import CodeburgerLogo from '../../assets/codeburger-logo.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import apiCodeburger from '../../services/api'
 import {
   Container,
@@ -18,7 +18,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string()
@@ -35,7 +35,6 @@ function Register() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm({ resolver: yupResolver(schema) })
 
@@ -118,5 +117,3 @@ function Register() {
     </Container>
   )
 }
-
-export default Register

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import CodeburgerLogo from '../../assets/codeburger-logo.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'
 import apiCodeburger from '../../services/api'
 import {
@@ -19,7 +19,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function Login() {
+export function Login() {
   const { putUserData } = useUser()
   const navigate = useNavigate()
 
@@ -35,7 +35,6 @@ function Login() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm({ resolver: yupResolver(schema) })
 
@@ -103,5 +102,3 @@ function Login() {
     </Container>
   )
 }
-
-export default Login

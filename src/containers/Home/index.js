@@ -1,16 +1,16 @@
 import React from 'react'
 
 import HomeLogo from '../../assets/home-logo.svg'
-import CategoryCarrossel from '../../components/CategoryCarrossel'
+import { CategoryCarrossel, OffersCarrossel, Header } from '../../components'
 import { Container } from './styles'
 
-function Home() {
+export function Home() {
   return (
     <Container>
+      <Header />
       <img src={HomeLogo} alt="logo" />
       <CategoryCarrossel />
+      <OffersCarrossel />
     </Container>
   )
 }
-
-export default Home
