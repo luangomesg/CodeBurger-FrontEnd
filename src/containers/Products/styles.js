@@ -34,4 +34,5 @@ export const ProductsContainer = styled.div`
   justify-items: center;
   margin-top: 20px;
   height: 100%;
+  background-color: #e5e5e5;
 `

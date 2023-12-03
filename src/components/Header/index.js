@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import Cart from '../../assets/cart.svg'
 import User from '../../assets/user.svg'
@@ -15,16 +16,39 @@ import {
 } from './styles'
 
 export function Header() {
-  const { userData } = useUser()
+  const { userData, logout } = useUser()
   const { cartProducts } = useCart()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const logoutUser = () => {
+    logout()
+    navigate('/login')
+  }
 
   return (
     <Container>
       <ContainerLeft>
-        <PageLink>
+        <PageLink
+          onClick={() =>
+            setTimeout(() => {
+              navigate('/')
+            }, 1000)
+          }
+          isActive={location.pathname === '/'}
+        >
           <span>Home</span>
         </PageLink>
-        <PageLink>Ver produtos</PageLink>
+        <PageLink
+          onClick={() =>
+            setTimeout(() => {
+              navigate('/produtos')
+            }, 1000)
+          }
+          isActive={location.pathname.includes('produtos')}
+        >
+          <span>Ver produtos</span>
+        </PageLink>
       </ContainerLeft>
 
       <ContainerRight>
@@ -32,13 +56,20 @@ export function Header() {
           <img src={User} alt="logo-pessoa" />
         </PageLink>
         <SepareteLine />
-        <PageLinkCart cartCount={cartProducts.length}>
+        <PageLinkCart
+          onClick={() =>
+            setTimeout(() => {
+              navigate('/carrinho')
+            }, 1000)
+          }
+          cartCount={cartProducts.length}
+        >
           <img src={Cart} alt="carrinho" />
         </PageLinkCart>
 
         <ContainerText>
           <p>Olá, {userData && userData.name}</p>
-          <PageLink>
+          <PageLink onClick={logoutUser}>
             <span>Sair</span>
           </PageLink>
         </ContainerText>

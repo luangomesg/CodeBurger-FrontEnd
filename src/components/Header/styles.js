@@ -19,7 +19,8 @@ export const PageLink = styled.a`
   cursor: pointer;
 
   span {
-    color: #9758a6;
+    color: ${props => (props.isActive ? '#9758a6' : '#00000')};
+    font-weight: bold;
   }
 `
 

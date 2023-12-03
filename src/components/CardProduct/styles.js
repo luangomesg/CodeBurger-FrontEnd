@@ -4,16 +4,19 @@ export const Container = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 30px 60px rgba(57, 57, 57, 0.1);
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 16px;
+  padding: 20px;
   width: 100%;
-
+  height: 250px;
   div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: 50%;
     height: 150px;
+    align-items: center;
   }
 
   img {
@@ -24,7 +27,7 @@ export const Container = styled.div`
 `
 
 export const ProductName = styled.p`
-  font-weight: none;
+  font-weight: bolder;
   font-size: 16px;
   color: #000000;
 `

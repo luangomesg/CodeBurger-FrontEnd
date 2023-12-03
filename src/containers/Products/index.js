@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import ProductsLogo from '../../assets/productsLogo.svg'
-import { CardProduct } from '../../components'
+import { CardProduct, Header } from '../../components'
 import apiCodeburger from '../../services/api'
 import formatCurrency from '../../utils/FormatCurrency'
 import {
@@ -54,6 +54,7 @@ export function Products() {
   }, [activeCategory, products])
   return (
     <Container>
+      <Header />
       <img className="productLogo" src={ProductsLogo} alt="logo" />
       <CategoriesMenu>
         {categories &&
