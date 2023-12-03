@@ -9,6 +9,7 @@ export function Cart() {
     <Container>
       <Header />
       <img src={CartLogo} alt="logo" />
+
       <Wrapper>
         <CartItems />
         <CartResume />
