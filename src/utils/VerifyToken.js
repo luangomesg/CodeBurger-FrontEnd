@@ -1,19 +1,26 @@
+import { jwtDecode } from 'jwt-decode'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const navigate = useNavigate()
+const VerificaToken = () => {
+  const navigate = useNavigate()
 
-const verificaToken = () => {
-  const token = localStorage.getItem('codeburger:userData')
+  useEffect(() => {
+    const token = localStorage.getItem('codeburger:userData')
+    const newToken = JSON.parse(token)
 
-  if (token) {
-    const decodedToken = jwt_decode(token)
-    const currentTime = Date.now() / 1000
+    if (token) {
+      const decodedToken = jwtDecode(newToken.token)
+      const currentTime = Date.now() / 1000
 
-    if (decodedToken.exp < currentTime) {
-      localStorage.removeItem('codeburger:userData')
+      if (decodedToken.exp < currentTime) {
+        localStorage.removeItem('codeburger:userData')
+        navigate('/login')
+      }
+    } else {
       navigate('/login')
     }
-  } else {
-    navigate('/login')
-  }
+  }, [navigate])
 }
+
+export default VerificaToken
