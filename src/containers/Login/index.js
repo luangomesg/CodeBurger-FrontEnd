@@ -61,7 +61,11 @@ export function Login() {
 
       putUserData(data)
       setTimeout(() => {
-        navigate('/')
+        if (data.admin) {
+          navigate('/pedidos')
+        } else {
+          navigate('/')
+        }
       }, 1000)
     } catch (err) {
       toast.error('Falha no sistema! Tente novamente')

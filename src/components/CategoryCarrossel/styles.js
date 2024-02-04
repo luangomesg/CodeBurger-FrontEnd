@@ -38,25 +38,29 @@ export const ContainerItems = styled.div`
     width: 200px;
     border-radius: 10px;
   }
+`
 
-  button {
-    margin-top: 16px;
-    border-radius: 8px;
-    background: #9758a6;
-    height: 45px;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
+export const Button = styled.button`
+  margin-top: 16px;
+  border-radius: 8px;
+  background: #9758a6;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &:hover {
-      opacity: 0.9;
-    }
+  &:hover {
+    opacity: 0.9;
+  }
 
-    &:active {
-      opacity: 0.8;
-    }
+  &:active {
+    opacity: 0.8;
   }
 `

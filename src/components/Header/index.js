@@ -42,7 +42,7 @@ export function Header() {
         <PageLink
           onClick={() =>
             setTimeout(() => {
-              navigate('/produtos')
+              navigate('/produtos/0')
             }, 1000)
           }
           isActive={location.pathname.includes('produtos')}

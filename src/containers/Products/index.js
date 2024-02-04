@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import ProductsLogo from '../../assets/productsLogo.svg'
 import { CardProduct, Header } from '../../components'
@@ -12,8 +13,11 @@ import {
 } from './styles'
 
 export function Products() {
+  const { categoryId } = useParams()
+  const [activeCategory, setActiveCategory] = useState(
+    parseInt(categoryId, 10) || 0
+  )
   const [categories, setCategories] = useState([])
-  const [activeCategory, setActiveCategory] = useState(0)
   const [products, setProducts] = useState([])
   const [filterProducts, setFilterProducts] = useState([])
 
@@ -31,9 +35,10 @@ export function Products() {
     async function loadProducts() {
       const { data } = await apiCodeburger.get('products')
 
-      const newProducts = data.map(product => {
-        return { ...product, formatedPrice: formatCurrency(product.price) }
-      })
+      const newProducts = data.map(product => ({
+        ...product,
+        formatedPrice: formatCurrency(product.price)
+      }))
 
       setProducts(newProducts)
     }
@@ -52,32 +57,31 @@ export function Products() {
       setFilterProducts(newFilterProducts)
     }
   }, [activeCategory, products])
+
   return (
     <Container>
       <Header />
       <img className="productLogo" src={ProductsLogo} alt="logo" />
       <CategoriesMenu>
         {categories &&
-          categories.map(category => {
-            return (
-              <CategoryButton
-                key={category.id}
-                onClick={() => {
-                  setActiveCategory(category.id)
-                }}
-                isActiveCategory={activeCategory === category.id}
-              >
-                {category.name}
-              </CategoryButton>
-            )
-          })}
+          categories.map(category => (
+            <CategoryButton
+              key={category.id}
+              onClick={() => {
+                setActiveCategory(category.id)
+              }}
+              isActiveCategory={activeCategory === category.id}
+            >
+              {category.name}
+            </CategoryButton>
+          ))}
       </CategoriesMenu>
 
       <ProductsContainer>
         {filterProducts &&
-          filterProducts.map(product => {
-            return <CardProduct key={product.id} product={product} />
-          })}
+          filterProducts.map(product => (
+            <CardProduct key={product.id} product={product} />
+          ))}
       </ProductsContainer>
     </Container>
   )
