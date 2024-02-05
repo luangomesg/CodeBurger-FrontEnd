@@ -19,8 +19,6 @@ function Orders() {
   const [activeStatus, setActiveStatus] = useState(1)
   const [rows, setRows] = useState([])
 
-  console.log(orders, 'aqui')
-
   useEffect(() => {
     async function loadOrders() {
       const { data } = await apiCodeburger.get('orders')
@@ -77,7 +75,7 @@ function Orders() {
               <LinkMenu
                 key={statu.id}
                 onClick={() => handleStatus(statu)}
-                isActiveStatus={activeStatus === statu.id}
+                data-isactivestatus={activeStatus === statu.id}
               >
                 {statu.label}
               </LinkMenu>

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: #efefef;
   min-height: 100vh;
-  padding: 20px;
 `
 
 export const ProductImg = styled.img`
@@ -29,8 +28,8 @@ export const Menu = styled.div`
 export const LinkMenu = styled.a`
   color: #323050;
   cursor: pointer;
-  font-weight: ${props => (props.isActiveStatus ? 'bold' : 'normal')};
+  font-weight: ${props => (props['data-isactivestatus'] ? 'bold' : 'normal')};
   border-bottom: ${props =>
-    props.isActiveStatus ? ' 2px solid #9758a6' : 'none'};
+    props['data-isactivestatus'] ? ' 2px solid #9758a6' : 'none'};
   padding-bottom: 5px;
 `
