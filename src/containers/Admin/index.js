@@ -3,6 +3,7 @@ import React from 'react'
 
 import { SideMenuAdmin } from '../../components'
 import paths from '../../utils/paths'
+import EditProduct from './EditProduct'
 import ListProducts from './ListProducts'
 import NewProduct from './NewProduct'
 import Orders from './Orders'
@@ -16,7 +17,7 @@ export function Admin({ path }) {
         {path === paths.Order && <Orders />}
         {path === paths.Products && <ListProducts />}
         {path === paths.NewProduct && <NewProduct />}
-        <ListProducts />
+        {path === paths.EditProduct && <EditProduct />}
       </ContainerItems>
     </Container>
   )

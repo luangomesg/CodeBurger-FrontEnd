@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import CodeburgerLogo from '../../assets/codeburger-logo.svg'
-import { Button } from '../../components'
+import { Button, ErrorMessage } from '../../components'
 import { useUser } from '../../hooks/UserContext'
 import apiCodeburger from '../../services/api'
 import {
@@ -15,8 +15,7 @@ import {
   ContainerItens,
   Input,
   Label,
-  SignInLink,
-  ErrorMessage
+  SignInLink
 } from './styles'
 
 export function Login() {
