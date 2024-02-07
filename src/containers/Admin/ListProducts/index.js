@@ -9,11 +9,12 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import apiCodeburger from '../../../services/api'
 import formatCurrency from '../../../utils/FormatCurrency'
 import paths from '../../../utils/paths'
-import { Container, Img, EditIconStyle } from './styles'
+import { Container, Img, EditIconStyle, DeleteIconStyle } from './styles'
 
 function ListProducts() {
   const navigate = useNavigate()
@@ -37,6 +38,16 @@ function ListProducts() {
 
   function editProduct(product) {
     navigate(paths.EditProduct, { state: product })
+  }
+
+  async function deleteProduct(product) {
+    try {
+      await apiCodeburger.delete(`products/${product.id}`)
+      setProducts(products.filter(p => p.id !== product.id))
+      toast.success('Produto deletado com sucesso')
+    } catch (err) {
+      toast.error('Falha ao deletar o produto')
+    }
   }
   return (
     <Container>
@@ -69,6 +80,7 @@ function ListProducts() {
                     <Img src={product.url} alt="imagem-produto" />
                   </TableCell>
                   <TableCell align="center">
+                    <DeleteIconStyle onClick={() => deleteProduct(product)} />
                     <EditIconStyle onClick={() => editProduct(product)} />
                   </TableCell>
                 </TableRow>

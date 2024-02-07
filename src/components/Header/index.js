@@ -17,11 +17,12 @@ import {
 
 export function Header() {
   const { userData, logout } = useUser()
-  const { cartProducts } = useCart()
+  const { cartProducts, clearCart } = useCart()
   const navigate = useNavigate()
   const location = useLocation()
 
   const logoutUser = () => {
+    clearCart()
     logout()
     navigate('/login')
   }

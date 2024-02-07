@@ -29,6 +29,11 @@ export const CartProvider = ({ children }) => {
     await updateLocalStorage(newCartProduct)
   }
 
+  const clearCart = async () => {
+    await localStorage.removeItem('codeburger:cartInfo')
+    setCartProducts([])
+  }
+
   const deleteProducts = async productId => {
     const newCart = cartProducts.filter(product => product.id !== productId)
     setCartProducts(newCart)
@@ -80,7 +85,8 @@ export const CartProvider = ({ children }) => {
         putProductsInCart,
         cartProducts,
         increasedProductsInCart,
-        decreasedProductsInCart
+        decreasedProductsInCart,
+        clearCart
       }}
     >
       {children}
