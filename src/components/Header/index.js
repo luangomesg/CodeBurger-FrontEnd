@@ -36,7 +36,7 @@ export function Header() {
               navigate('/')
             }, 1000)
           }
-          isActive={location.pathname === '/'}
+          data-isactive={location.pathname === '/'}
         >
           <span>Home</span>
         </PageLink>
@@ -46,7 +46,7 @@ export function Header() {
               navigate('/produtos/0')
             }, 1000)
           }
-          isActive={location.pathname.includes('produtos')}
+          data-isactive={location.pathname.includes('produtos')}
         >
           <span>Ver produtos</span>
         </PageLink>
@@ -63,7 +63,7 @@ export function Header() {
               navigate('/carrinho')
             }, 1000)
           }
-          cartCount={cartProducts.length}
+          data-cartcount={cartProducts.length}
         >
           <img src={Cart} alt="carrinho" />
         </PageLinkCart>

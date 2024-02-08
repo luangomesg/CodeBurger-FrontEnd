@@ -19,7 +19,7 @@ export const PageLink = styled.a`
   cursor: pointer;
 
   span {
-    color: ${props => (props.isActive ? '#9758a6' : '#00000')};
+    color: ${props => (props['data-isactive'] ? '#9758a6' : '#00000')};
     font-weight: bold;
   }
 `
@@ -29,7 +29,7 @@ export const PageLinkCart = styled.a`
   cursor: pointer;
 
   &::after {
-    content: '${props => props.cartCount}';
+    content: '${props => props['data-cartcount']}';
     height: 20px;
     padding: 0 5px 0 5px;
     border-radius: 100%;
