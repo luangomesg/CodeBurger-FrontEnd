@@ -22,6 +22,14 @@ export function Products() {
   const [filterProducts, setFilterProducts] = useState([])
 
   useEffect(() => {
+    document.body.style.backgroundColor = '#e5e5e5'
+
+    return () => {
+      document.body.style.backgroundColor = null
+    }
+  }, [])
+
+  useEffect(() => {
     async function loadCategories() {
       const { data } = await apiCodeburger.get('categories')
 
