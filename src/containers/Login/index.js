@@ -77,7 +77,7 @@ export function Login() {
       <ContainerItens>
         <img src={CodeburgerLogo} alt="Login-Image" />
         <h1>Login</h1>
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <Label>Email</Label>
           <Input
             type="email"

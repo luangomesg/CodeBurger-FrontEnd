@@ -71,7 +71,7 @@ function EditProduct() {
 
   return (
     <Container>
-      <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <div>
           <Label>Nome</Label>
           <Input
