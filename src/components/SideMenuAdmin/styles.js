@@ -10,6 +10,25 @@ export const Container = styled.div`
   hr {
     margin: 50px 15px;
   }
+
+  .changeExit {
+    position: fixed;
+    bottom: 30px;
+  }
+
+  @media (max-width: 960px) {
+    width: 100%;
+    height: 250px;
+
+    hr {
+      display: none;
+    }
+
+    .changeExit {
+      position: relative;
+      bottom: 0;
+    }
+  }
 `
 
 export const ItemContainer = styled.div`
@@ -23,6 +42,10 @@ export const ItemContainer = styled.div`
 
   .icon {
     color: #ffffff;
+  }
+
+  @media (max-width: 960px) {
+    justify-content: center;
   }
 `
 
