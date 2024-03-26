@@ -54,7 +54,6 @@ export function Login() {
         })
       } else if (status === 401) {
         toast.error('Verifique seu e-mail e senha')
-        navigate('/login')
       } else {
         throw new Error()
       }

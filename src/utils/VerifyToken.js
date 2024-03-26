@@ -15,10 +15,10 @@ const VerificaToken = () => {
 
       if (decodedToken.exp < currentTime) {
         localStorage.removeItem('codeburger:userData')
-        navigate('/login')
+        navigate('/')
       }
     } else {
-      navigate('/login')
+      navigate('/')
     }
   }, [navigate])
 }
