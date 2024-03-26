@@ -110,7 +110,7 @@ export function Register() {
           </Button>
         </form>
         <SignInLink>
-          Já possui conta? <Link to="/login">Sign In</Link>
+          Já possui conta? <Link to="/">Sign In</Link>
         </SignInLink>
       </ContainerItens>
     </Container>
