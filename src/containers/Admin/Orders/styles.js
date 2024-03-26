@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background: #efefef;
+  padding: 10px;
 `
 
 export const ProductImg = styled.img`
