@@ -14,11 +14,16 @@ export const Container = styled.div`
     height: 25px;
     cursor: pointer;
     margin-right: 40px;
+    display: none;
   }
 
   @media (max-width: 680px) {
     span {
       color: #ffffff;
+    }
+
+    .imgmenu {
+      display: flex;
     }
   }
 `
