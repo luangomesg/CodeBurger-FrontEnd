@@ -52,7 +52,6 @@ export function Login() {
           position: 'top-right',
           theme: 'colored'
         })
-        navigate('/home')
       } else if (status === 401) {
         toast.error('Verifique seu e-mail e senha')
       } else {

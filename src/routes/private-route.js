@@ -12,7 +12,7 @@ function PrivateRouter({ isAdmin }) {
     return <Navigate to="/" />
   }
 
-  return user ? <Outlet /> : <Navigate to="/login" />
+  return user ? <Outlet /> : <Navigate to="/" />
 }
 
 export default PrivateRouter
