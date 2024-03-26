@@ -54,6 +54,7 @@ export function Login() {
         })
       } else if (status === 401) {
         toast.error('Verifique seu e-mail e senha')
+        return
       } else {
         throw new Error()
       }
@@ -63,7 +64,7 @@ export function Login() {
         if (data.admin) {
           navigate('/pedidos')
         } else {
-          navigate('/')
+          navigate('/home')
         }
       }, 1000)
     } catch (err) {
