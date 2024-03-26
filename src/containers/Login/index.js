@@ -63,7 +63,7 @@ export function Login() {
         if (data.admin) {
           navigate('/pedidos')
         } else {
-          navigate('/')
+          navigate('/home')
         }
       }, 1000)
     } catch (err) {
