@@ -10,6 +10,10 @@ function MyRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />}>
+          <Route path="/" element={<Login />} />
+        </Route>
+
+        <Route path="/cadastro" element={<Register />}>
           <Route path="/cadastro" element={<Register />} />
         </Route>
 
