@@ -7,6 +7,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
+
+  @media (max-width: 780px) {
+    width: 80%;
+  }
+
+  @media (max-width: 715px) {
+    width: 100%;
+  }
 `
 
 export const ContainerItems = styled.div`
@@ -37,6 +45,13 @@ export const ContainerItems = styled.div`
 
   .delivery-tax-price {
     grid-area: delivery-tax-price;
+  }
+
+  @media (max-width: 780px) {
+    h2 {
+      font-size: 20px;
+      text-align: center;
+    }
   }
 `
 

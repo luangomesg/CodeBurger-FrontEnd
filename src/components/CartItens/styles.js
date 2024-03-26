@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: 100%;
   background-color: #d3d3d3;
   padding: 10px;
+
+  @media (max-width: 715px) {
+    width: 100%;
+  }
 `
 
 export const Header = styled.div`
@@ -17,6 +21,14 @@ export const Header = styled.div`
   p {
     font-size: 16px;
     color: #000;
+  }
+
+  @media (max-width: 915px) {
+    width: ${props => (props.size > 0 ? '80%' : '100%')};
+  }
+
+  @media (max-width: 715px) {
+    width: ${props => (props.size > 0 ? '100%' : '100%')};
   }
 `
 
@@ -38,6 +50,20 @@ export const Body = styled.div`
   p {
     font-size: 15px;
     color: #000;
+  }
+
+  @media (max-width: 915px) {
+    width: 80%;
+  }
+
+  @media (max-width: 715px) {
+    width: 100%;
+  }
+
+  @media (max-width: 400px) {
+    p {
+      font-size: 12px;
+    }
   }
 `
 

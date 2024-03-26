@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import Cart from '../../assets/cart.svg'
+import menu from '../../assets/menu.svg'
 import User from '../../assets/user.svg'
 import { useCart } from '../../hooks/CartContext'
 import { useUser } from '../../hooks/UserContext'
@@ -18,6 +19,7 @@ import {
 export function Header() {
   const { userData, logout } = useUser()
   const { cartProducts, clearCart } = useCart()
+  const [dataIsMenu, setDataIsMenu] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -37,8 +39,9 @@ export function Header() {
             }, 1000)
           }
           data-isactive={location.pathname === '/'}
+          data-menu={dataIsMenu}
         >
-          <span>Home</span>
+          <span className="hom">Home</span>
         </PageLink>
         <PageLink
           onClick={() =>
@@ -47,13 +50,14 @@ export function Header() {
             }, 1000)
           }
           data-isactive={location.pathname.includes('produtos')}
+          data-menu={dataIsMenu}
         >
-          <span>Ver produtos</span>
+          <span className="product">Ver produtos</span>
         </PageLink>
       </ContainerLeft>
 
       <ContainerRight>
-        <PageLink>
+        <PageLink className="person">
           <img src={User} alt="logo-pessoa" />
         </PageLink>
         <SepareteLine />
@@ -68,13 +72,19 @@ export function Header() {
           <img src={Cart} alt="carrinho" />
         </PageLinkCart>
 
-        <ContainerText>
+        <ContainerText data-menu={dataIsMenu}>
           <p>Olá, {userData && userData.name}</p>
           <PageLink onClick={logoutUser}>
-            <span>Sair</span>
+            <span className="exit">Sair</span>
           </PageLink>
         </ContainerText>
       </ContainerRight>
+      <img
+        className="imgmenu"
+        src={menu}
+        alt="menu"
+        onClick={() => setDataIsMenu(prevState => !prevState)}
+      />
     </Container>
   )
 }

@@ -15,6 +15,14 @@ export const CategoriesMenu = styled.div`
   justify-content: center;
   gap: 50px;
   margin-top: 20px;
+
+  @media (max-width: 705px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 470px) {
+    gap: 20px;
+  }
 `
 
 export const CategoryButton = styled.button`
@@ -24,6 +32,14 @@ export const CategoryButton = styled.button`
   border-bottom: ${props => props.isActiveCategory && '2px solid #9758A6'};
   color: ${props => (props.isActiveCategory ? '#9758A6' : '#373737')};
   font-size: 17px;
+
+  @media (max-width: 705px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 470px) {
+    font-size: 11px;
+  }
 `
 
 export const ProductsContainer = styled.div`
@@ -35,4 +51,12 @@ export const ProductsContainer = styled.div`
   margin-top: 20px;
   height: 100%;
   background-color: #e5e5e5;
+
+  @media (max-width: 915px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 705px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
