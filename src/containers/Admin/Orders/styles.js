@@ -22,6 +22,11 @@ export const Menu = styled.div`
   gap: 50px;
   justify-content: center;
   margin: 20px 0;
+
+  @media (max-width: 680px) {
+    font-size: 12px;
+    gap: 20px;
+  }
 `
 
 export const LinkMenu = styled.a`

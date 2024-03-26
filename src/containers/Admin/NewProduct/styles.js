@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #d3d3d3;
 
   form {
     display: flex;

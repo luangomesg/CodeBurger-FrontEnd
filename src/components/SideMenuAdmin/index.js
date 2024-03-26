@@ -21,7 +21,7 @@ export function SideMenuAdmin({ path }) {
       })}
       <hr />
 
-      <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
+      <ItemContainer className="changeExit">
         <LogoutIcon style={{ color: '#ffffff' }} />
         <ListLink to="/login" onClick={logout}>
           Sair
