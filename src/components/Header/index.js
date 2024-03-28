@@ -35,7 +35,7 @@ export function Header() {
         <PageLink
           onClick={() =>
             setTimeout(() => {
-              navigate('/')
+              navigate('/home')
             }, 1000)
           }
           data-isactive={location.pathname === '/'}
