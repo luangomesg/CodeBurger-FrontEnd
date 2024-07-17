@@ -23,7 +23,7 @@ function NewProduct() {
         return value?.length > 0
       })
       .test('fileSize', 'Carregue arquivos de até 2mb', value => {
-        return value[0]?.size <= 200000
+        return value[0]?.size <= 2000000
       })
       .test('type', 'Carregue apenas arquivos JPEG e PNG', value => {
         return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
