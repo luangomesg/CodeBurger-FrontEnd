@@ -45,8 +45,6 @@ export const ContainerLeft = styled.div`
 export const PageLink = styled.a`
   display: flex;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
 
   span {
     color: ${props => (props['data-isactive'] ? '#9758a6' : '#00000')};
@@ -88,6 +86,11 @@ export const ContainerRight = styled.div`
   right: 0;
   padding-right: 100px;
   align-items: center;
+
+  > .person {
+    width: 20px;
+    height: 20px;
+  }
 
   @media (max-width: 680px) {
     .person {
