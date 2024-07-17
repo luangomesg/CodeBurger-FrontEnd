@@ -38,7 +38,7 @@ export function Header() {
               navigate('/home')
             }, 1000)
           }
-          data-isactive={location.pathname.includes === '/'}
+          data-isactive={location.pathname.includes('home')}
           data-menu={dataIsMenu}
         >
           <span className="hom">Home</span>
