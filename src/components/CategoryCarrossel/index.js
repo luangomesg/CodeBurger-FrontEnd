@@ -24,7 +24,7 @@ export function CategoryCarrossel() {
     { width: 400, itemsToShow: 2 },
     { width: 600, itemsToShow: 3 },
     { width: 900, itemsToShow: 4 },
-    { width: 1300, itemsToShow: 5 }
+    { width: 1300, itemsToShow: 4 }
   ]
   return (
     <Container>
