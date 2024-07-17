@@ -45,6 +45,8 @@ export const ContainerLeft = styled.div`
 export const PageLink = styled.a`
   display: flex;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
 
   span {
     color: ${props => (props['data-isactive'] ? '#9758a6' : '#00000')};
@@ -66,6 +68,8 @@ export const PageLink = styled.a`
 export const PageLinkCart = styled.a`
   display: flex;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
 
   &::after {
     content: '${props => props['data-cartcount']}';
