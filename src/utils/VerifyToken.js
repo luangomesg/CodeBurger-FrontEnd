@@ -1,4 +1,4 @@
-import { jwtDecode } from 'jwt-decode'
+import jwtDecode from 'jwt-decode'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,10 +7,9 @@ const VerificaToken = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('codeburger:userData')
-    const newToken = JSON.parse(token)
-
     if (token) {
-      const decodedToken = jwtDecode(newToken.token)
+      const parsedToken = JSON.parse(token)
+      const decodedToken = jwtDecode(parsedToken.token)
       const currentTime = Date.now() / 1000
 
       if (decodedToken.exp < currentTime) {
@@ -21,6 +20,8 @@ const VerificaToken = () => {
       navigate('/')
     }
   }, [navigate])
+
+  return null // Retorne null, pois este componente não precisa renderizar nada
 }
 
 export default VerificaToken
