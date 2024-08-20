@@ -20,8 +20,6 @@ const VerificaToken = () => {
       navigate('/')
     }
   }, [navigate])
-
-  return null // Retorne null, pois este componente não precisa renderizar nada
 }
 
 export default VerificaToken
