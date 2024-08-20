@@ -7,7 +7,11 @@ const apiCodeburger = axios.create({
 apiCodeburger.interceptors.request.use(async config => {
   const userData = await localStorage.getItem('codeburger:userData')
   const token = userData && JSON.parse(userData).token
-  config.headers.authorization = `Bearer ${token}`
+
+  if (!config.url.includes('/product-file')) {
+    config.headers.authorization = `Bearer ${token}`
+  }
+
   return config
 })
 
