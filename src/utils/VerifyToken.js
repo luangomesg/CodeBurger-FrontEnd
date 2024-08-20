@@ -1,4 +1,4 @@
-import jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
